@@ -21,22 +21,24 @@ As a potential employer
 > I want to find the 'best' candidate from FAC Nazareth to maybe hire
 
 ## Schema
-|**MEMBERS**|
-|:----
-| ***Columns*** | ***Parameters  ***   |
-| id      | PRIMARY KEY SERIAL      |
-|name|VARCHAR(255) NOT NULL|
-|position|VARCHAR(100) NOT NULL|
-|from|VARCHAR(100)|
-|desc|TEXT|
-|languages| TEXT|
+**MEMBERS**
 
-|**Votes**|
-|:----
-| ***Columns*** | ***Parameters  ***   |
-| id | PRIMARY KEY SERIAL NOT NULL|
-| member_id      | FOREIGN KEY REF(members) NOT NULL|
-| num_votes| INTEGER|
+| ***Columns***  | ***Parameters  ***   |
+| :------------- | :------------------  |
+|       id       |  PRIMARY KEY SERIAL  |
+|      name      | VARCHAR(255) NOT NULL|
+|    position    | VARCHAR(100) NOT NULL|
+|      location  |     VARCHAR(100)     |
+|   description  |         TEXT         |
+|    languages   |         TEXT         |
+
+**Votes**
+
+| ***Columns***  |        ***Parameters  ***           |
+| :------------- |           :-------------            |
+|       id       |    PRIMARY KEY SERIAL NOT NULL      |
+|    member_id   | references members(id) INT NOT NULL |
+|    num_votes   |              INT                    |
 
 ## HOW
 
