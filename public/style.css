@@ -94,3 +94,7 @@ header p {
 .container {
   padding: 16px;
 }
+
+.song {
+  display:none;
+}
