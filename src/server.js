@@ -30,6 +30,6 @@ server.register([inert, vision], (error) => {
   server.start(error =>{
     if(error) throw error;
 
-    console.log('Server running on port: ' + server.info.uri);
+    console.log('Be made Hapi at: ' + server.info.uri);
   })
 })
