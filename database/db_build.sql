@@ -18,7 +18,7 @@ CREATE TABLE votes (
 );
 
 INSERT INTO members (name, position, location, description, languages)
-VALUES ('macintoshhelper', 'student', 'Planet Earth', 'I don\'t know', 'English');
+VALUES ('macintoshhelper', 'student', 'Planet Earth', 'I don\'t know', 'UK and US English');
 
 INSERT INTO members (name, position, location, description, languages)
 VALUES ('Suuuuuha', 'student', 'Nazareth', 'BLIMEY!', 'Arabic, English');
@@ -27,6 +27,6 @@ INSERT INTO members (name, position, location, description, languages)
 VALUES ('RQ16', 'student', 'Everywhere', 'self-obsessed', 'Arabic, English');
 
 INSERT INTO members (name, position, location, description, languages)
-VALUES ('mavis', 'student', 'Nazareth', 'no comment', 'only English');
+VALUES ('mavis', 'student', 'Nazareth', 'no comment', 'English, Arabic شوي');
 
 COMMIT;
