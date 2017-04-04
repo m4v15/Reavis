@@ -32,3 +32,5 @@ server.register([inert, vision], (error) => {
     console.log('Be made Hapi at: ' + server.info.uri);
   })
 })
+
+module.exports = server;
