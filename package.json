@@ -4,6 +4,8 @@
   "description": "An app which shows people involved in FACN1, where a user can see everyone involved, and add new people",
   "main": "index.js",
   "scripts": {
+    "start": "node src/server.js",
+    "dev-start": "nodemon src/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
