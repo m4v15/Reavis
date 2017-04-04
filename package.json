@@ -1,0 +1,30 @@
+{
+  "name": "makesuhapi",
+  "version": "1.0.0",
+  "description": "An app which shows people involved in FACN1, where a user can see everyone involved, and add new people",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FACN1/week7-ifitmake-suHapi.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FACN1/week7-ifitmake-suHapi/issues"
+  },
+  "homepage": "https://github.com/FACN1/week7-ifitmake-suHapi#readme",
+  "devDependencies": {
+    "nodemon": "^1.11.0",
+    "tape": "^4.6.3"
+  },
+  "dependencies": {
+    "env2": "^2.1.1",
+    "handlebars": "^4.0.6",
+    "hapi": "^16.1.1",
+    "inert": "^4.2.0",
+    "vision": "^4.1.1"
+  }
+}
