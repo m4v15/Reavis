@@ -7,6 +7,7 @@ const inert = require('inert');
 const server = new hapi.Server()
 
 server.connection({
+  host: 'localhost',
   port: process.env.PORT || 4000
 })
 
@@ -22,12 +23,13 @@ server.register([inert, vision], (error) => {
     helpersPath: 'views/helpers',
     partialsPath: 'views/partials',
     layoutPath: 'views/layout',
+    layout: 'default'
   })
   server.route(routes);
 
   server.start(error =>{
     if(error) throw error;
 
-    console.log('Server running on Port' + server.info.port);
+    console.log('Server running on port: ' + server.info.uri);
   })
 })
