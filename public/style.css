@@ -49,6 +49,9 @@ table {
  *    CSS GOES BELOW
  */
 
+body{
+  font-family: "Roboto", sans-serif;
+}
 .members-header {
   background-color: #26A69A;
   min-height: 50vh;
@@ -90,7 +93,30 @@ header p {
   text-decoration: none;
 }
 
-
 .container {
   padding: 16px;
+}
+
+.member-list h2 {
+  font-size: 26px;
+  margin-bottom: 16px;
+}
+
+.member-list li {
+  border-top: #E8E8E8 solid 1px;
+  padding: 24px 0px;
+}
+
+.member-list h4 {
+  margin: 8px 0px;
+}
+
+.add-member input, .add-member textarea {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #E8E8E8;
+  border-radius: 2px;
+  margin: 12px 0px;
+  box-sizing: border-box;
 }
