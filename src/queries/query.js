@@ -5,6 +5,7 @@ let table = db_connection.query('SELECT name, position, location, description, l
   if (err) {
     return err;
   }
+  console.log(res.rows);
   return(res.rows);
 })
 
