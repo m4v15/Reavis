@@ -2,7 +2,7 @@ const {Pool} = require('pg');
 const url = require('url');
 require('env2')('./config.env');
 
-if (!process.env.DB_URL) throw new Error('Enviroment variable DATABASE_URL must be set');
+if (!process.env.DATABASE_URL) throw new Error('Enviroment variable DATABASE_URL must be set');
 
 const params = url.parse(process.env.DATABASE_URL);
 const [username, password] = params.auth.split(':');
@@ -17,5 +17,7 @@ const options = {
 }
 
 options.ssl = (options.host !== 'localhost');
+
+console.log(options);
 
 module.exports = new Pool(options);
