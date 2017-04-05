@@ -12,6 +12,14 @@ let getAll = (cb) => {
 })
 }
 
+let searchFor = (search, cb) => {
+
+}
+
+let addMember = (member, cb) => {
+
+}
+
 module.exports = {
-  getAll
+  getAll, searchFor, addMember
 }

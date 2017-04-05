@@ -1,6 +1,19 @@
 # week7-ifitmake-suHapi
 An app which shows people involved in FACN1, where a user can see everyone involved, and add new people
 
+## TO DO list
+
+- CSS a list
+- search bar functionality
+  - in our query file, make a function which can take a search input and search the database for it.
+  - Have a route handler for the search route (/search?)
+- Add members functionality
+
+- vote for members functionality
+
+- Add data validation?
+
+- Mavis' Song.
 
 
 ## User Stories
