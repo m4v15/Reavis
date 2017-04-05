@@ -1,6 +1,8 @@
 # week7-ifitmake-suHapi
 An app which shows people involved in FACN1, where a user can see everyone involved, and add new people
 
+[SEE IT ON HEROKU HERE](https://secret-gorge-99094.herokuapp.com/)
+
 ## TO DO list
 
 - CSS a list
