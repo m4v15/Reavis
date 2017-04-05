@@ -97,6 +97,10 @@ header p {
   padding: 16px;
 }
 
+.song {
+  display:none;
+}
+
 .member-list h2 {
   font-size: 26px;
   margin-bottom: 16px;
