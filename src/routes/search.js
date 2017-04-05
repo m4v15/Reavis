@@ -1,8 +1,8 @@
 const query = require('../queries/query.js');
 
 const handler = (request, reply) =>{
-
-  query.getAll((err,res) => {
+  let searchQuery = encodeURIComponent(request.query.search);
+  query.searchFor(searchQuery, (err,res) => {
     if(err) console.log(err);
     let data = {
         title: 'FACN Hapi Members',
@@ -10,13 +10,15 @@ const handler = (request, reply) =>{
         members: res
       }
     reply.view('index', data);
-  })
+  });
 };
 
 const options = {
   method: 'GET',
-  path: '/',
+  path: '/search/',
   handler: handler
 };
+
+
 
 module.exports = options;
