@@ -1,12 +1,17 @@
 const db_connection = require('../../database/db_connection.js');
 
 
-let table = db_connection.query('SELECT name, position, location, description, languages FROM members ', (err, res) => {
+let getAll = (cb) => {
+  db_connection.query('SELECT name, position, location, description, languages FROM members ', (err, res) => {
   if (err) {
-    return err;
+    cb(err);
   }
-  console.log(res.rows);
-  return(res.rows);
+  else{
+    cb(null, res.rows);
+  }
 })
+}
 
-module.exports = table;
+module.exports = {
+  getAll
+}
