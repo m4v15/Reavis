@@ -9,4 +9,5 @@ fs.readFile(path.join(__dirname, './db_build.sql'), (err, file) => {
     if (err) throw err;
     console.log('Database created with the result: ', res);
     process.exit();
+  })
 })
