@@ -16,6 +16,4 @@ let addMember = (member, cb) => {
   db_connection.query('INSERT INTO members (name, position, location, description, languages) VALUES ($1, $2, $3, $4, $5)', [member.name, member.position, member.location, member.description, member.languages], cb);
 }
 
-
-
 module.exports = { getAll, searchFor, addMember }
