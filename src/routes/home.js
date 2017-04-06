@@ -3,7 +3,10 @@ const query = require('../queries/query.js');
 const handler = (request, reply) =>{
 
   query.getAll((err,res) => {
-    if(err) console.log(err);
+    if(err) {
+      console.log(err);
+      return reply.code(500);
+    }
     let data = {
         title: 'FACN Hapi Members',
         description: 'An app which shows people involved in FACN1, where a user can see everyone involved, and add new people',
