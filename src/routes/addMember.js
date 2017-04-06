@@ -7,7 +7,6 @@ const handler = (request, reply) => {
       console.log(err);
       return;
     }
-    console.log('Database INSERT INTO response: ', res);
   })
 
   reply.redirect('/');
