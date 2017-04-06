@@ -1,6 +1,6 @@
 const server = require('../server.js');
 const tape = require('tape');
-
+server.start()
 tape('check the home route', (t) =>{
   server.inject({url: '/', method: 'GET'}, (res) =>{
     let testString = '<meta http-equiv="X-UA-Compatible" content="IE=edge" />';
