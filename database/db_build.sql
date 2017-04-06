@@ -5,16 +5,16 @@ DROP TABLE IF EXISTS members, votes cascade;
 CREATE TABLE members (
   id SERIAL PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
-  position	VARCHAR(100) NOT NULL,
+  position VARCHAR(100) NOT NULL,
   location VARCHAR(100),
   description TEXT,
-  languages	TEXT
+  languages TEXT
 );
 
 CREATE TABLE votes (
-  id	PRIMARY KEY SERIAL NOT NULL,
-  member_id references members(id) INT NOT NULL,
-  num_votes	INT
+  id SERIAL PRIMARY KEY,
+  member_id INTEGER references members (id) NOT NULL,
+  num_votes INTEGER
 );
 
 INSERT INTO members (name, position, location, description, languages)
