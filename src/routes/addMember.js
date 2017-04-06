@@ -1,4 +1,5 @@
 const query = require('../queries/query.js');
+const Joi = require('joi');
 
 const handler = (request, reply) => {
 
@@ -15,7 +16,18 @@ const handler = (request, reply) => {
 const options = {
   method: 'POST',
   path: '/add-member',
-  handler: handler
+  handler: handler,
+  config: {
+    validate: {
+      payload: {
+        name: Joi.string().alphanum().required(),
+        position: Joi.string().required(),
+        location: Joi.string().required(),
+        description: Joi.string().required(),
+        languages: Joi.string().required(),
+      }
+    }
+  }
 };
 
 module.exports = options;
