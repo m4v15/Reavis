@@ -10,14 +10,14 @@ const handler = (request, reply) =>{
           description: 'An app which shows people involved in FACN1, where a user can see everyone involved, and add new people',
         }
       reply.view('noresult', data);
+      return
     }
-    else{
-      let data = {
+    let data = {
           title: 'FACN Hapi Members',
           description: 'An app which shows people involved in FACN1, where a user can see everyone involved, and add new people',
           members: res.rows
         }
-      reply.view('search', data);
+    reply.view('search', data);
   }});
 };
 
