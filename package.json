@@ -4,8 +4,8 @@
   "description": "An app which shows people involved in FACN1, where a user can see everyone involved, and add new people",
   "main": "index.js",
   "scripts": {
-    "start": "node src/server.js",
-    "dev-start": "nodemon src/server.js",
+    "start": "node src/start_server.js",
+    "dev": "nodemon src/start_server.js",
     "test": "node src/tests/test.js",
     "coverage": "istanbul cover ./src/tests/test.js"
   },
