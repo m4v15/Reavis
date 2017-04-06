@@ -3,6 +3,15 @@ An app which shows people involved in FACN1, where a user can see everyone invol
 
 [SEE IT ON HEROKU HERE](https://secret-gorge-99094.herokuapp.com/)
 
+## Get Started
+```bash
+git clone https://github.com/FACN1/week7-ifitmake-suHapi.git && 
+cd week7-ifitmake-suHapi && 
+npm i &&
+touch config.env && 
+echo 'Add database URL to config.env'
+```
+
 ## TO DO list
 
 - CSS a list
