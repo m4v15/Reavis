@@ -1,7 +1,7 @@
-# week7-ifitmake-suHapi
+# Reavis
 An app which shows people involved in FACN1, where a user can see everyone involved, and add new people
 
-[SEE IT ON HEROKU HERE](https://secret-gorge-99094.herokuapp.com/)
+[SEE IT ON HEROKU HERE](https://reavis.herokuapp.com/)
 
 ## Get Started
 ```bash
