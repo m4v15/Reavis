@@ -1,5 +1,5 @@
 {
-  "name": "makesuhapi",
+  "name": "Reavis",
   "version": "1.0.0",
   "description": "An app which shows people involved in FACN1, where a user can see everyone involved, and add new people",
   "main": "index.js",
@@ -7,19 +7,25 @@
     "start": "node src/start_server.js",
     "dev": "nodemon src/start_server.js",
     "test": "node src/tests/test.js",
-    "coverage": "istanbul cover ./src/tests/test.js"
+    "coverage": "istanbul cover ./src/tests/test.js",
+    "prepush": "npm run lint",
+    "lint": "./node_modules/.bin/eslint './+(src|database)/**/*.js'"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/FACN1/week7-ifitmake-suHapi.git"
+    "url": "git+https://github.com/FACN1/Reavis.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/FACN1/week7-ifitmake-suHapi/issues"
+    "url": "https://github.com/FACN1/Reavis/issues"
   },
-  "homepage": "https://github.com/FACN1/week7-ifitmake-suHapi#readme",
+  "homepage": "https://github.com/FACN1/Reavis#readme",
   "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "husky": "^0.13.3",
     "istanbul": "^0.4.5",
     "nodemon": "^1.11.0",
     "tape": "^4.6.3"
