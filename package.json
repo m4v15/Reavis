@@ -27,7 +27,7 @@
     "eslint-plugin-import": "^2.2.0",
     "husky": "^0.13.3",
     "istanbul": "^0.4.5",
-    "nodemon": "^1.11.0",
+    "nodemon": "^1.11.0"
   },
   "dependencies": {
     "env2": "^2.1.1",
