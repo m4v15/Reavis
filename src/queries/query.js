@@ -16,4 +16,7 @@ const addMember = (member, cb) => {
   dbConnection.query('INSERT INTO members (name, position, location, description, languages) VALUES ($1, $2, $3, $4, $5)', [member.name, member.position, member.location, member.description, member.languages], cb);
 };
 
-module.exports = { getAll, searchFor, addMember };
+const addToken = (token, user) => {
+  dbConnection.query('INSERT INTO tokens (token, username) VALUES ($1, $2)', [token, user]);
+};
+module.exports = { getAll, searchFor, addMember, addToken };
