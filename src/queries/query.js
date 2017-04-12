@@ -6,7 +6,7 @@ const getAll = (cb) => {
 };
 
 const searchFor = (search, cb) => {
-  const searchTerm = `% ${search} %`;
+  const searchTerm = `%${search}%`;
   dbConnection.query(
     'SELECT name, position, location, description, languages FROM members WHERE name ILIKE $1 OR position ILIKE $1 OR location ILIKE $1 OR description ILIKE $1 OR languages ILIKE $1;', [searchTerm], cb);
 };
