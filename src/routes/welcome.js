@@ -24,8 +24,31 @@ const handler = (request, reply) => {
       console.log('No access token came back from github, just this body: ', body);
       return reply.code(500);
     }
-    console.log('Access token: ', body.access_token);
-    return reply.redirect('/');
+    const headers = {
+      'User-Agent': 'Reavis',
+      Authorization: `token ${body.access_token}`
+    };
+    const getOptions = {
+      url: 'https://api.github.com/user',
+      headers
+    };
+    return Request.get(getOptions, (getError, getResponse, getBody) => {
+      const parsedBody = JSON.parse(getBody);
+      const jwtOptions = {
+        exp: Date.now() + (24 * 60 * 60 * 1000),
+        sub: 'githubData',
+        status: 'loggedIn'
+      };
+      const payload = {
+        user: {
+          username: parsedBody.login,
+          image_url: parsedBody.avatar_url,
+          org_url: parsedBody.organizations_url
+        }
+      };
+      console.log(payload);
+      reply.redirect('/');
+    });
   });
 };
 
