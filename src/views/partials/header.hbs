@@ -1,7 +1,13 @@
 <header class="members-header container">
+  <a href="/login">
+  <button type="button" name="button">Log in with Github</button>
+  </a>
   <h1>{{title}}</h1>
   <p>{{description}}</p>
-  {{#if githubStatus}}
-  <p>{{githubStatus}}</p>
+  {{#if isLoggedIn}}
+  <section class="credentials">
+    <p class="greeting">Hello, {{user}}</p>
+    <img class="avatar" src={{imgUrl}} />
+  </section>
   {{/if}}
 </header>

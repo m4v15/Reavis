@@ -7,8 +7,6 @@ const haj = require('hapi-auth-jwt2');
 require('env2')('./config.env');
 
 const validate = (token, request, callback) => {
-  console.log('Validating');
-  console.log(token);
   if (token.status === 'loggedIn') {
     return callback(null, true);
   }
@@ -16,7 +14,13 @@ const validate = (token, request, callback) => {
 };
 
 
-const server = new hapi.Server();
+const server = new hapi.Server({
+  connections: {
+    state: {
+      isSameSite: 'Lax'
+    }
+  }
+});
 
 server.connection({
   port: process.env.PORT || 4000
@@ -36,7 +40,7 @@ server.register([inert, vision, haj], (error) => {
     layoutPath: 'views/layout',
     layout: 'default'
   });
-  server.auth.strategy('jwt-strategy', 'jwt', {
+  server.auth.strategy('jwt-strategy', 'jwt', 'optional', {
     key: process.env.SECRET,
     validateFunc: validate,
     verifyOptions: { algorithms: ['HS256'] }

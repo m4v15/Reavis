@@ -5,12 +5,26 @@ const handler = (request, reply) => query.getAll((err, res) => {
     console.log(err);
     return reply.code(500);
   }
-  const dataNotLogged = {
+
+  let user = false;
+  let imgUrl = false;
+  let isLoggedIn = false;
+
+  if (request.auth.isAuthenticated) {
+    user = request.auth.credentials.user.username;
+    imgUrl = request.auth.credentials.user.image_url;
+    isLoggedIn = true;
+  }
+
+  const data = {
     title: 'FACN Hapi Members',
     description: 'An app which shows people involved in FACN1, where a user can see everyone involved, and add new people',
-    members: res.rows
+    members: res.rows,
+    user,
+    imgUrl,
+    isLoggedIn
   };
-  return reply.view('index', dataNotLogged);
+  return reply.view('index', data);
 });
 
 
