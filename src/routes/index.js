@@ -4,6 +4,7 @@ const searchEndpoint = require('./search.js');
 const addMemberEndpoint = require('./addMember.js');
 const loginEndpoint = require('./login.js');
 const welcomeEndpoint = require('./welcome.js');
+const addFormEndpoint = require('./addform.js');
 
 module.exports = [
   homeEndpoint,
@@ -11,5 +12,6 @@ module.exports = [
   addMemberEndpoint,
   searchEndpoint,
   loginEndpoint,
-  welcomeEndpoint
+  welcomeEndpoint,
+  addFormEndpoint
 ];

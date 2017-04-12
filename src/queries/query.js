@@ -16,4 +16,14 @@ const addMember = (member, cb) => {
   dbConnection.query('INSERT INTO members (name, position, location, description, languages) VALUES ($1, $2, $3, $4, $5)', [member.name, member.position, member.location, member.description, member.languages], cb);
 };
 
-module.exports = { getAll, searchFor, addMember };
+const addToken = (token, user) => {
+  dbConnection.query('DELETE FROM tokens WHERE username ILIKE $1', [user], (err) => {
+    if (err) {
+      console.log('Error deleting row from database: ', err);
+      return err;
+    }
+    return dbConnection.query('INSERT INTO tokens (token, username) VALUES ($1, $2)', [token, user]);
+  });
+};
+
+module.exports = { getAll, searchFor, addMember, addToken };
