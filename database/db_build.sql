@@ -17,6 +17,12 @@ CREATE TABLE votes (
   num_votes INTEGER
 );
 
+CREATE TABLE tokens (
+  id SERIAL PRIMARY KEY,
+  token VARCHAR(255) NOT NULL,
+  username VARCHAR(255) NOT NULL
+  );
+
 INSERT INTO members (name, position, location, description, languages)
 VALUES ('macintoshhelper', 'student', 'Planet Earth', 'I do not know', 'UK and US English'), ('Suuuuuha', 'student', 'Nazareth', 'BLIMEY!', 'Arabic, English'), ('RQ16', 'student', 'Everywhere', 'self-obsessed', 'Arabic, English'), ('mavis', 'student', 'Nazareth', 'no comment', 'English, Arabic شوي');
 
