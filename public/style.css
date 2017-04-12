@@ -54,7 +54,7 @@ body{
 }
 .members-header {
   background-color: #26A69A;
-  min-height: 50vh;
+  min-height: 30vh;
   color: white;
   text-align: center;
 }
@@ -108,7 +108,8 @@ header p {
 
 .member-list li {
   border-top: #E8E8E8 solid 1px;
-  padding: 24px 0px;
+  padding: 24px 20px;
+  display: inline-block;
 }
 
 .member-list h4 {
@@ -123,4 +124,21 @@ header p {
   border-radius: 2px;
   margin: 12px 0px;
   box-sizing: border-box;
+}
+
+.credentials {
+  position: absolute;
+  height: 50px;
+  top: 0;
+  right: 0;
+  padding: 10px;
+}
+
+.credentials .greeting {
+  display: inline-block;
+}
+
+.credentials .avatar {
+  display: inline-block;
+  height: 50px;
 }
