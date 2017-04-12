@@ -3,5 +3,7 @@
     <input type="text" name="search" value="" placeholder="Enter search here">
     <input type="submit" name="" value="Search">
   </form>
+  {{#if isLoggedIn}}
   <a class="add-person" href="/addform">+ Person</a>
+  {{/if}}
 </section>
