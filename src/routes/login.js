@@ -3,8 +3,7 @@ require('env2')('./config.env');
 
 const handler = (request, reply) => {
   const queries = {
-    client_id: process.env.CLIENT_ID,
-    redirect_url: 'https://localhost:4040/welcome'
+    client_id: process.env.CLIENT_ID
   };
   const queriesStrung = querystring.stringify(queries);
   reply.redirect(`https://github.com/login/oauth/authorize?${queriesStrung}`);
