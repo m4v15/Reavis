@@ -17,6 +17,13 @@ const addMember = (member, cb) => {
 };
 
 const addToken = (token, user) => {
-  dbConnection.query('INSERT INTO tokens (token, username) VALUES ($1, $2)', [token, user]);
+  dbConnection.query('DELETE FROM tokens WHERE username ILIKE $1', [user], (err) => {
+    if (err) {
+      console.log('Error deleting row from database: ', err);
+      return err;
+    }
+    return dbConnection.query('INSERT INTO tokens (token, username) VALUES ($1, $2)', [token, user]);
+  });
 };
+
 module.exports = { getAll, searchFor, addMember, addToken };
