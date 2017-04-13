@@ -5,7 +5,7 @@ const handler = (request, reply) => {
   query.searchFor(searchQuery, (err, res) => {
     if (err) {
       console.log(err);
-      return;
+      return reply.code(500);
     }
 
     let user = false;
@@ -27,8 +27,8 @@ const handler = (request, reply) => {
         isLoggedIn
       };
 
-      reply.view('noresult', data);
-    } else {
+      return reply.view('noresult', data);
+    } {
       const data = {
         title: 'FACN Hapi Members',
         description: 'An app which shows people involved in FACN1, where a user can see everyone involved, and add new people',
@@ -37,7 +37,7 @@ const handler = (request, reply) => {
         imgUrl,
         isLoggedIn
       };
-      reply.view('search', data);
+      return reply.view('search', data);
     }
   });
 };

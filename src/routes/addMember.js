@@ -5,7 +5,9 @@ const handler = (request, reply) => {
   query.addMember(request.payload, (err) => {
     if (err) {
       console.log(err);
+      return reply.code(500);
     }
+    return '';
   });
 
   reply.redirect('/');
