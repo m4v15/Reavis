@@ -1,5 +1,5 @@
 const Request = require('request');
-const query = require('../queries/query.js');
+const query = require('../../queries/query.js');
 const jwt = require('jsonwebtoken');
 require('env2')('./config.env');
 

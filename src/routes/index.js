@@ -1,11 +1,11 @@
-const homeEndpoint = require('./home.js');
+const homeEndpoint = require('./viewroutes/home.js');
 const staticEndpoint = require('./static.js');
-const searchEndpoint = require('./search.js');
+const searchEndpoint = require('./viewroutes/search.js');
 const addMemberEndpoint = require('./addMember.js');
-const loginEndpoint = require('./login.js');
-const welcomeEndpoint = require('./welcome.js');
-const addFormEndpoint = require('./addform.js');
-const logoutEndpoint = require('./logout.js');
+const loginEndpoint = require('./authroutes/login.js');
+const welcomeEndpoint = require('./authroutes/welcome.js');
+const addFormEndpoint = require('./viewroutes/addform.js');
+const logoutEndpoint = require('./authroutes/logout.js');
 
 module.exports = [
   homeEndpoint,

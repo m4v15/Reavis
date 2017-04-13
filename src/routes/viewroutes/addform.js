@@ -1,11 +1,10 @@
-const query = require('../queries/query.js');
+const query = require('../../queries/query.js');
 
 const handler = (request, reply) => query.getAll((err, res) => {
   if (err) {
     console.log(err);
     return reply.code(500);
   }
-
   let user = false;
   let imgUrl = false;
   let isLoggedIn = false;
@@ -24,14 +23,18 @@ const handler = (request, reply) => query.getAll((err, res) => {
     imgUrl,
     isLoggedIn
   };
-  return reply.view('index', data);
+
+  return reply.view('addform', data);
 });
 
 
 const options = {
   method: 'GET',
-  path: '/',
-  handler
+  path: '/addform',
+  handler,
+  config: {
+    auth: 'jwt-strategy'
+  }
 };
 
 module.exports = options;
