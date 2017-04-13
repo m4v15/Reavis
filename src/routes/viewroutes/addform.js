@@ -5,36 +5,31 @@ const handler = (request, reply) => query.getAll((err, res) => {
     console.log(err);
     return reply.code(500);
   }
-  let user = false;
-  let imgUrl = false;
-  let isLoggedIn = false;
-
-  if (request.auth.isAuthenticated) {
-    user = request.auth.credentials.user.username;
-    imgUrl = request.auth.credentials.user.image_url;
-    isLoggedIn = true;
-  }
 
   const data = {
     title: 'FACN Hapi Members',
     description: 'An app which shows people involved in FACN1, where a user can see everyone involved, and add new people',
     members: res.rows,
-    user,
-    imgUrl,
-    isLoggedIn
+    user: false,
+    imgUrl: false,
+    isLoggedIn: false
   };
 
-  return reply.view('addform', data);
+  if (request.auth.isAuthenticated) {
+    data.user = request.auth.credentials.user.username;
+    data.imgUrl = request.auth.credentials.user.image_url;
+    data.isLoggedIn = true;
+
+    return reply.view('addform', data);
+  }
+  return reply.view('notloggedin', data);
 });
 
 
 const options = {
   method: 'GET',
   path: '/addform',
-  handler,
-  config: {
-    auth: 'jwt-strategy'
-  }
+  handler
 };
 
 module.exports = options;
