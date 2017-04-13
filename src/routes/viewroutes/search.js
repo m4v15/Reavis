@@ -1,4 +1,4 @@
-const query = require('../queries/query.js');
+const query = require('../../queries/query.js');
 
 const handler = (request, reply) => {
   const searchQuery = encodeURIComponent(request.query.search);
