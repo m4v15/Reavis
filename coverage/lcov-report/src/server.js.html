@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">88.24% </span>
+        <span class="strong">90% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>15/17</span>
+        <span class='fraction'>18/20</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">66.67% </span>
@@ -35,9 +35,9 @@
         <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">94.74% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>15/15</span>
+        <span class='fraction'>18/19</span>
       </div>
     </div>
   </div>
@@ -79,25 +79,56 @@
 34
 35
 36
-37</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -107,32 +138,47 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const hapi = require('hapi');
 const vision = require('vision');
-const path = require('path');
 const routes = require('./routes/index.js');
 const inert = require('inert');
+const hbs = require('handlebars');
+const haj = require('hapi-auth-jwt2');
+require('env2')('./config.env');
 &nbsp;
-const server = new hapi.Server()
+const validate = (token, request, callback) =&gt; {
+  <span class="missing-if-branch" title="else path not taken" >E</span>if (token.status === 'loggedIn') {
+    return callback(null, true);
+  }
+<span class="cstat-no" title="statement not covered" >  return callback(null, false);</span>
+};
+&nbsp;
+&nbsp;
+const server = new hapi.Server({
+  connections: {
+    state: {
+      isSameSite: 'Lax'
+    }
+  }
+});
 &nbsp;
 server.connection({
   port: process.env.PORT || 4000
-})
+});
 &nbsp;
-server.register([inert, vision], (error) =&gt; {
-  <span class="missing-if-branch" title="if path not taken" >I</span>if(error) <span class="cstat-no" title="statement not covered" >throw error;</span>
+server.register([inert, vision, haj], (error) =&gt; {
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (error) <span class="cstat-no" title="statement not covered" >throw error;</span>
 &nbsp;
   server.views({
     engines: {
-      hbs:require('handlebars')
+      hbs
     },
     relativeTo: __dirname,
     path: 'views',
@@ -140,15 +186,14 @@ server.register([inert, vision], (error) =&gt; {
     partialsPath: 'views/partials',
     layoutPath: 'views/layout',
     layout: 'default'
-  })
+  });
+  server.auth.strategy('jwt-strategy', 'jwt', 'optional', {
+    key: process.env.SECRET,
+    validateFunc: validate,
+    verifyOptions: { algorithms: ['HS256'] }
+  });
   server.route(routes);
-&nbsp;
-  server.start(error =&gt;{
-    <span class="missing-if-branch" title="if path not taken" >I</span>if(error) <span class="cstat-no" title="statement not covered" >throw error;</span>
-&nbsp;
-    console.log('Be made Hapi at: ' + server.info.uri);
-  })
-})
+});
 &nbsp;
 module.exports = server;
 &nbsp;</pre></td></tr>
@@ -157,7 +202,7 @@ module.exports = server;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Apr 04 2017 17:30:04 GMT+0300 (IDT)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Apr 13 2017 14:05:02 GMT+0300 (IDT)
 </div>
 </div>
 <script src="../prettify.js"></script>
