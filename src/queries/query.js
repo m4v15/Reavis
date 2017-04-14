@@ -16,6 +16,23 @@ const addMember = (member, cb) => {
   dbConnection.query('INSERT INTO members (name, position, location, description, languages) VALUES ($1, $2, $3, $4, $5)', [member.name, member.position, member.location, member.description, member.languages], cb);
 };
 
+const filldb = (members, params, cb) => {
+  let baseString = 'INSERT INTO members (id, name, position, location, description, languages) VALUES';
+  let count = 1;
+  for (let i = 1; i <= members; i += 1) {
+    const one = count;
+    const two = count + 1;
+    const thr = count + 2;
+    const fou = count + 3;
+    const fiv = count + 4;
+    const six = count + 5;
+    baseString += ` ($${one}, $${two}, $${thr}, $${fou}, $${fiv}, $${six}),`;
+    count += 6;
+  }
+  baseString = baseString.slice(0, -1);
+  dbConnection.query(baseString, params, cb);
+};
+
 const addToken = (token, user) => {
   dbConnection.query('DELETE FROM tokens WHERE username ILIKE $1', [user], (err) => {
     if (err) {
@@ -26,4 +43,4 @@ const addToken = (token, user) => {
   });
 };
 
-module.exports = { getAll, searchFor, addMember, addToken };
+module.exports = { getAll, searchFor, addMember, addToken, filldb };

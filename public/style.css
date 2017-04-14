@@ -146,3 +146,7 @@ header p {
 .no-result {
   text-align: center;
 }
+
+.mem-img {
+  height: 100px;
+}

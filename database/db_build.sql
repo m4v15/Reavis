@@ -12,12 +12,9 @@ CREATE TABLE members (
 );
 
 CREATE TABLE votes (
-  id SERIAL PRIMARY KEY,
+  id INTEGER PRIMARY KEY,
   member_id INTEGER references members (id) NOT NULL,
   num_votes INTEGER
 );
-
-INSERT INTO members (name, position, location, description, languages)
-VALUES ('macintoshhelper', 'student', 'Planet Earth', 'I do not know', 'UK and US English'), ('Suuuuuha', 'student', 'Nazareth', 'BLIMEY!', 'Arabic, English'), ('RQ16', 'student', 'Everywhere', 'self-obsessed', 'Arabic, English'), ('mavis', 'student', 'Nazareth', 'no comment', 'English, Arabic شوي');
 
 COMMIT;
