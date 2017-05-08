@@ -9,17 +9,19 @@ const handler = (request, reply) => query.getAll((err, res) => {
   let user = false;
   let imgUrl = false;
   let isLoggedIn = false;
+  let members = [];
 
   if (request.auth.isAuthenticated) {
     user = request.auth.credentials.user.username;
     imgUrl = request.auth.credentials.user.image_url;
     isLoggedIn = true;
+    members = res.rows
   }
 
   const data = {
-    title: 'FACN Hapi Members',
-    description: 'An app which shows people involved in FACN1, where a user can see everyone involved, and add new people',
-    members: res.rows,
+    title: 'FAC Hapi Members',
+    description: 'An app which shows people involved in FAC, where a user can see everyone involved, and add new people',
+    members,
     user,
     imgUrl,
     isLoggedIn

@@ -1,7 +1,7 @@
 <ul class="member-list container">
   {{#each members}}
 
-  <li>
+  <li {{{helpers this.name ../user}}}>
     <a href={{this.position}}>
     <img class='mem-img' src={{this.description}} alt={{this.name}}+"'s avatar"></img></a>
     <h2>{{this.name}}</h2>

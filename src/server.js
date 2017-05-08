@@ -4,13 +4,19 @@ const routes = require('./routes/index.js');
 const inert = require('inert');
 const hbs = require('handlebars');
 const haj = require('hapi-auth-jwt2');
+const query = require('./queries/query.js');
+
 require('env2')('./config.env');
 
+
 const validate = (token, request, callback) => {
-  if (token.status === 'loggedIn') {
-    return callback(null, true);
-  }
-  return callback(null, false);
+  query.searchFor(token.user.username, (err, res) => {
+    if (res.rows.length){
+      return callback(null, true);
+    } else {
+      return callback(null, false);
+    }
+  })  
 };
 
 

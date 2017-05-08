@@ -44,9 +44,6 @@ const checkMembership = (error, res, getBody, body, reply) => {
     headers
   };
   request(options, (orgError, response, orgBody) => {
-    if (!JSON.parse(orgBody).find(organization => organization.login === 'FACN1')) {
-      return reply.redirect('/addform');
-    }
     return makeToken(error, res, parsedBody, body, reply);
   });
 };
