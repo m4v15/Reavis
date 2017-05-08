@@ -2,11 +2,10 @@
   {{#each members}}
 
   <li>
-    <img class='mem-img' src={{this.description}} alt={{this.name}}+"'s avatar"></img>
+    <a href={{this.position}}>
+    <img class='mem-img' src={{this.description}} alt={{this.name}}+"'s avatar"></img></a>
     <h2>{{this.name}}</h2>
-    <h4>{{this.position}}</h4>
-    <h4>{{this.location}}</h4>
-    <h4>{{this.languages}}</h4>
+    <a href={{this.location}}>Organisations</a>
   </li>
   {{/each }}
 </ul>
